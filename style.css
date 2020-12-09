@@ -1,12 +1,11 @@
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background-color:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:700}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0}input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{height:auto}input[type=search]{-webkit-appearance:textfield;box-sizing:content-box}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:700}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&family=Montserrat&display=swap');
 :root{
     --light-blue: #8ae6ff;
     --black: #3a3a3a;
     --grey: #6d6e71;
-    --main-font: 'Roboto', sans-serif;
-    
+    --main-font: 'Inconsolata', monospace;
+    --heading-font: 'Montserrat', sans-serif;
 }
 
 
@@ -14,8 +13,10 @@
 .grid{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(16, 1fr) ;
-    height: 200vh;
+    grid-template-rows: repeat(8, 1fr) ;
+    height: 300vh;
+    max-width: 60rem;
+    margin: 0 auto;
 }
 
 a{
@@ -24,9 +25,41 @@ a{
    
 }
 
+a:hover {
+    text-shadow: 1px 1px var(--grey);
+}
+
 body{
     color: var(--black);
     font-family: var(--main-font);
+    cursor: pointer;
+}
+
+button:hover{
+    box-shadow: 3px 3px var(--grey);
+    text-shadow: 1px 1px var(--grey);
+    
+}
+
+.team-card:hover{
+    transition: 0.4s ease;
+    box-shadow: 5px 5px var(--grey);
+
+}
+
+button{
+    align-self: center;
+    width: 16rem;
+    border-radius: 35px;
+    height: 3rem;
+    border: none;
+    transition: all 0.5s;
+}
+
+
+
+h1{
+    font-family: var(--heading-font);
 }
 
 
@@ -40,18 +73,39 @@ body{
 }
 
 .navbar a{
-    font-size: 1.275rem;
+    font-size: 1.5rem;
+    align-self: flex-end;
 }
 
 header{
-    grid-row: 1/2;
+    grid-row: 1/3;
     grid-column: 1/5;
     display: flex;
+    align-items: flex-end;
+    background: var(--light-blue);
+    margin-top: 1rem;
+}
+
+footer{
+    grid-row: 8/9;
+    grid-column: 1/5;
+    align-self: flex-end;
+    margin-bottom: 1rem;
+    border-top: solid 3px var(--grey);
+    display: flex;
+    justify-content: space-evenly;
+}
+
+footer div{
+    display: flex;
+    flex-direction: column;
 }
 
 .header-image{
-    border: 1px solid #fff;
-    padding-left: 1rem;
+    
+    padding: 0 0 1rem 1rem;
+    object-fit: cover;
+    
    
 }
 
@@ -62,15 +116,33 @@ header{
     flex-direction: column;
 }
 
-.header-text-button{
-    width: 12rem;
-    align-self: center;
-    
-}
+
 
 .info{
-    grid-row: 8/10;
+    grid-row: 7/8;
+    grid-column: 1/5;
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+    background: var(--light-blue);
+}
+
+.info-h1{
+    grid-row: 6/7;
     grid-column: 1/3;
+    align-self: flex-end;
+}
+
+.info-card{
+    display: flex;
+    flex-direction: column;
+    padding: 0 2rem;
+}
+
+.info-card-image{
+    object-fit: cover;
+    padding: 1rem 1rem 1rem 0;
+
 }
 
 .inline-text{
@@ -78,34 +150,57 @@ header{
 }
 
 .team-h1{
-    grid-row: 2/3;
-    grid-column: 2/4;
-    padding-top: 2rem;
-    padding-left: 1.725rem;
+    grid-row: 3/4;
+    grid-column: 1/2;
+    align-self: flex-end;
     
 }
 
 .the-team{
-    grid-row: 3/7;
+    grid-row: 4/6;
     grid-column: 1/5;
     display: flex;
     justify-content: space-evenly;
+    
+    
 }
 
 .team-card{
-    border: 3px solid var(--light-blue);
+   background:var(--light-blue);
     width: 300px;
     display: flex;
     flex-direction: column;    
    align-items: center;
-   padding: 0 .5rem;
+   margin: 0 1rem;
+   padding: 0 0.8rem 0.8rem 0.8rem;
    overflow: hidden;
+   height: 30rem;
+   box-shadow: 3px 3px var(--grey);
+
 }
 
 .team-card img{
     border-radius: 50%;
+    object-fit: cover;
+    
     
 }
+
+.clinics{
+    grid-row: 6/7;
+    grid-column: 2/5;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+    padding-top: 2rem;
+}
+
+.clinics-h1{
+    grid-row: 6/7;
+    grid-column: 1/2;
+    
+}
+
 
 
 
